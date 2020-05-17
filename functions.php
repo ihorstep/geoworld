@@ -9,6 +9,8 @@ function connect() {
     $connection = new $PDO($dsn, $user, $psd);
 
     $connection->setAttribute(PDO::AFTER_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    return $connection;
 }
 
 function getContinents(PDO $connection) {
@@ -21,5 +23,5 @@ function getContinents(PDO $connection) {
     return $continents;
 }
 
-return $connection;
+
 ?>
