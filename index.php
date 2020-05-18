@@ -49,21 +49,23 @@ $continents = getContinents($connection);
         </header>
         <main>
             <div class="container">
-                <div class="col-6 col-md4" style="height: 100px; border: 1px solid;">
+                <?php foreach ($continents as $continentItem): ?>
+                <div class="col-6 col-md4" style="height: 100px;">
                     <div class="card p-2 mb-2" style="width: 18rem;">
-                      <img src="images/continents/af.png" class="card-img-top" alt="Africa">
+                      <img src="images/continents/<?= strtolower($continentItem['code']) ?>.png" class="card-img-top" alt="<?= $continentItem['name']?>">
                       <div class="card-body">
-                        <h5 class="card-title">Africa</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                        <h5 class="card-title"><?= $continentItem['name']?></h5>
+                        <p class="card-text"><?= $continentItem['description'] ?></p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                 </div>
+                <?php endforeach;?>
+                <!--<div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
                 <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
                 <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
                 <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
-                <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
-                <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>
+                <div class="col-6 col-md4" style="height: 100px; border: 1px solid;"></div>-->
             </div>
         </main>
         <footer>
