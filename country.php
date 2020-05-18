@@ -26,14 +26,6 @@ function getCountry(PDO $connection, $code) {
                 <div class="row">
                     <div class="col-6 col-md4" style="border: 1px solid;">
                         <table class="table">
-                            <!--<thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                            </thead>-->
                             <tbody>
                             <tr>
                                 <td>Name</td>
@@ -49,17 +41,34 @@ function getCountry(PDO $connection, $code) {
                             </tr>
                             <tr>
                                 <td>Area</td>
-                                <td><?= $country['area'] ?> km&sup2;</td>
+                                <td><?= number_format($country['area']); ?> km&sup2;</td>
                             </tr>
                             <tr>
                                 <td>Currency</td>
                                 <td><?= $country['currency'] ?></td>
                             </tr>
+                            <tr>
+                                <td>Coordinates</td>
+                                <td id="coords"><?= $country['coords'] ?></td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="col-6 col-md4" style="border: 1px solid;">
-
+                        <div id="map"></div>
+                        <script>
+                            var map;
+                            var coords;
+                            function initMap() {
+                                coords = JSON.parse(document.getElementById("coords"))
+                                map = new google.maps.Map(document.getElementById('map'), {
+                                    center: {lat: coords[0], lng: coords[1] },
+                                    zoom: 8
+                                });
+                            }
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOrWPFL1YQVA584ysuWhAISQhfVjUm2C8&callback=initMap"
+                                async defer></script>
                     </div>
                 </div>
             </div>

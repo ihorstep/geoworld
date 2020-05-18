@@ -39,7 +39,6 @@ function getCountriesByContinent(PDO $connection, $code) {
                             <img src="images/countries/png100px/<?= strtolower($countryItem['code']) ?>.png">
                             <?= $countryItem['name'] ?>
                         </a>
-                        <li class="list-group-item">Vestibulum at eros</li>
                     <?php endforeach; ?>
                 </ul>
             </div>
