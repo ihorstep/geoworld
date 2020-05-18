@@ -41,7 +41,7 @@ function getCountry(PDO $connection, $code) {
                             </tr>
                             <tr>
                                 <td>Area</td>
-                                <td><?= number_format($country['area']); ?> km&sup2;</td>
+                                <td><span id="area"><?= number_format($country['area']); ?></span> km&sup2;</td>
                             </tr>
                             <tr>
                                 <td>Currency</td>
@@ -59,11 +59,25 @@ function getCountry(PDO $connection, $code) {
                         <script>
                             var map;
                             var coords;
+                            var area;
+
+                            /** Experimental attempt to calculate zoom from area size */
+                            function getLog(n) {
+                                var base = 10;
+                                if (n < 100) { base = 100 }
+                                return Math.log(n) / Math.log(base);
+                            }
+
                             function initMap() {
-                                coords = JSON.parse(document.getElementById("coords"))
+                                coords = JSON.parse(document.getElementById("coords").innerText);
+                                area = parseInt(document.getElementById("area").innerText.replace(/,/g,""));
+
+                                /** 11 - is a base zoom for small regions of 50 square kilometers */
+                                var zoom = 11 - getLog(area)
+
                                 map = new google.maps.Map(document.getElementById('map'), {
                                     center: {lat: coords[0], lng: coords[1] },
-                                    zoom: 8
+                                    zoom: zoom
                                 });
                             }
                         </script>
