@@ -24,10 +24,41 @@ function getCountry(PDO $connection, $code) {
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col-6 col-md4" style="height: 100px; border: 1px solid;">
-                        <? country ?>
+                    <div class="col-6 col-md4" style="border: 1px solid;">
+                        <table class="table">
+                            <!--<thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>-->
+                            <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td><?= $country['name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Official name</td>
+                                <td><?= $country['official_name'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Capital</td>
+                                <td><?= $country['capital'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Area</td>
+                                <td><?= $country['area'] ?> km&sup2;</td>
+                            </tr>
+                            <tr>
+                                <td>Currency</td>
+                                <td><?= $country['currency'] ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-6 col-md4" style="height: 100px; border: 1px solid;">
+                    <div class="col-6 col-md4" style="border: 1px solid;">
 
                     </div>
                 </div>
