@@ -35,7 +35,7 @@ function getCountriesByContinent(PDO $connection, $code) {
                 <ul class="list-group">
                     <div class="list-group-item list-group-item-secondary">Country List</div>
                     <?php foreach($countries as $countryItem): ?>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="country.php?code=<?= $countryItem['code'] ?>" class="list-group-item list-group-item-action">
                             <img src="images/countries/png100px/<?= strtolower($countryItem['code']) ?>.png">
                             <?= $countryItem['name'] ?>
                         </a>
