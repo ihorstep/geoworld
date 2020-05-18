@@ -81,7 +81,7 @@ function getCountry(PDO $connection, $code) {
                                 });
                             }
                         </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOrWPFL1YQVA584ysuWhAISQhfVjUm2C8&callback=initMap"
+                        <script src="https://maps.googleapis.com/maps/api/js?key=<?= getenv("GOOGLE_API_KEY"); ?>&callback=initMap"
                                 async defer></script>
                     </div>
                 </div>
