@@ -23,8 +23,9 @@ $continents = getContinents($connection);
                           <img src="images/continents/<?= strtolower($continentItem['code']) ?>.png" class="card-img-top" alt="<?= $continentItem['name']?>">
                           <div class="card-body">
                             <h4 class="card-title">
-                                <a href="continent.php?code=<?= $continentItem['code']?>"></a>
-                                <?= $continentItem['name'] ?>
+                                <a href="continent.php?code=<?= $continentItem['code']?>">
+                                    <?= $continentItem['name'] ?>
+                                </a>
                             </h4>
                             <p class="card-text"><?= $continentItem['description'] ?></p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
