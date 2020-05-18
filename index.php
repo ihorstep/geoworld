@@ -28,7 +28,6 @@ $continents = getContinents($connection);
                                 </a>
                             </h4>
                             <p class="card-text"><?= $continentItem['description'] ?></p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
                           </div>
                         </div>
                     </div>

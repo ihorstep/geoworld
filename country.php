@@ -34,7 +34,7 @@ function getCountry(PDO $connection, $code) {
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col-6 col-md4" style="border: 1px solid;">
+                    <div class="col-6 col-md4">
                         <table class="table">
                             <tbody>
                             <tr>
@@ -57,14 +57,14 @@ function getCountry(PDO $connection, $code) {
                                 <td>Currency</td>
                                 <td><?= $country['currency'] ?></td>
                             </tr>
-                            <tr>
+                            <tr hidden>
                                 <td>Coordinates</td>
                                 <td id="coords"><?= $country['coords'] ?></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-6 col-md4" style="border: 1px solid;">
+                    <div class="col-6 col-md4">
                         <div id="map"></div>
                         <script>
                             var map;
